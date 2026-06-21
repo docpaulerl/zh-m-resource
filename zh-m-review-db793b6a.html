@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与延伸阅读</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f2f2f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #1e2a3a;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 860px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.02);
+            padding: 2.5rem 2rem;
+            transition: box-shadow 0.25s;
+        }
+        @media (max-width: 600px) {
+            .page { padding: 1.8rem 1.2rem; }
+            body { padding: 1.2rem 0.6rem; }
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            margin: 0 0 0.35rem 0;
+            color: #0b1a2b;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #4f5b68;
+            border-left: 4px solid #a0b8d0;
+            padding-left: 1rem;
+            margin: 0 0 1.8rem 0;
+            font-weight: 360;
+            background: #f6f9fc;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.6;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 1.8rem 0;
+        }
+        .card {
+            background: #fafbfc;
+            border: 1px solid #e6eaef;
+            border-radius: 18px;
+            padding: 1.2rem 1.4rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.02);
+            transition: background 0.2s;
+        }
+        .card:hover {
+            background: #f4f7fa;
+            border-color: #cdd7e2;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 530;
+            color: #0b1f32;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card p {
+            margin-bottom: 0.6rem;
+            font-size: 0.96rem;
+            color: #2b3647;
+        }
+        .card p:last-child { margin-bottom: 0; }
+
+        .quote-marker {
+            background: #edf2f8;
+            border-left: 5px solid #5a7b9c;
+            padding: 1rem 1.4rem;
+            border-radius: 14px;
+            margin: 1.6rem 0;
+            font-size: 0.98rem;
+            color: #213147;
+            box-shadow: inset 1px 1px 4px rgba(0,0,0,0.02);
+        }
+        .quote-marker strong {
+            color: #153b5c;
+            font-weight: 570;
+        }
+
+        .inline-link {
+            color: #1f5680;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b0c8dd;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+        .inline-link:hover {
+            color: #0b3455;
+            text-decoration-color: #1f5680;
+        }
+
+        .footnote {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #dce3ec;
+            font-size: 0.88rem;
+            color: #4f6074;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+        .footnote a {
+            color: #366184;
+            text-decoration: none;
+            border-bottom: 1px dotted #b2c6da;
+        }
+        .footnote a:hover {
+            border-bottom: 1px solid #1f4d73;
+        }
+        .faq-summary {
+            margin-top: 2rem;
+            background: #f0f4fa;
+            border-radius: 22px;
+            padding: 1.4rem 1.6rem;
+        }
+        .faq-summary details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #dce2ec;
+            padding-bottom: 0.6rem;
+        }
+        .faq-summary details:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .faq-summary summary {
+            font-weight: 520;
+            cursor: pointer;
+            color: #15324f;
+            font-size: 0.98rem;
+            padding: 0.2rem 0;
+        }
+        .faq-summary p {
+            margin: 0.5rem 0 0.2rem 0;
+            padding-left: 0.5rem;
+            font-size: 0.92rem;
+            color: #2d3d54;
+        }
+        .tag {
+            display: inline-block;
+            background: #e1e9f2;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            color: #1f3d5c;
+            letter-spacing: 0.02em;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e3eaf2;
+            margin: 1.2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>查询·对照·延伸</h1>
+    <div class="subhead">
+        从日常信息检索到深层阅读，<a href="https://zh-m-i-game.com.cn" class="inline-link">爱游戏</a> 提供一种轻量而持续的内容索引方式。
+    </div>
+
+    <div class="card-grid">
+
+        <div class="card">
+            <h2>📋 日常查询</h2>
+            <p>对于经常需要核对术语、版本记录或平台规则的读者，快速定位原出处比记忆更可靠。<strong>爱游戏</strong>在索引层做了字段归类与时间戳标记，降低反复跳转的认知负荷。</p>
+            <p>例如游戏叙事中的关键节点对照、本地化版本差异，均可在站点内通过标签筛选获得一致格式的摘要。</p>
+        </div>
+
+        <div class="card">
+            <h2>🔁 对照与参照</h2>
+            <p>多款作品的设计模式对比、不同年代同类型产品的机制演变，常需要并排参照。<a href="https://zh-m-i-game.com.cn" class="inline-link">爱游戏</a> 的条目结构偏平，适合作为补位参考源。</p>
+            <p>对于社区讨论中频繁出现的“近似设定”，站点内保留了原始的引用段落，便于二次验证而非仅凭记忆复述。</p>
+        </div>
+
+        <div class="card">
+            <h2>📚 延伸阅读</h2>
+            <p>从一个机制词条或一篇开发者访谈出发，横向扩展至关联题材、历史版本、文化背景。<strong>爱游戏</strong> 的链接密度适中，节点间不超过两次跳转即可到达外围资料。</p>
+            <p>适合在写作、译校或专题整理时作为起点，而非终点。</p>
+        </div>
+    </div>
+
+    <div class="quote-marker">
+        <strong>引用提示</strong> · “查询应当指向可被再次验证的原始文本，而非二次转述。”<br>
+        <span style="font-size:0.85rem; color:#3a5772;">—— 信息整理中常见的原则，<a href="https://zh-m-i-game.com.cn" class="inline-link">爱游戏</a> 遵循这一基线。</span>
+    </div>
+
+    <p style="margin: 1rem 0 0.8rem 0; font-size:0.98rem;">
+        访问句：若你在撰写报告或构建专题时需要一个稳定、干净的内容锚点，可以试试将 <a href="https://zh-m-i-game.com.cn" class="inline-link">爱游戏</a> 纳入你的参考列表。它并不试图替代全部信息来源，而是扮演一个安静的、可被反复查阅的对照节点。
+    </p>
+
+    <div class="faq-summary">
+        <details open>
+            <summary>❓ 这个站适合哪种使用场景？</summary>
+            <p>主要是个人研究、写作辅助、以及小组讨论时的快速背景核对。由于结构偏平且无强运营干预，信息更新节奏稳定。</p>
+        </details>
+        <details>
+            <summary>📌 检索深度如何？</summary>
+            <p>条目覆盖近十年的主要作品及常见衍生话题。如果你需要的是一条非常冷门的本地化分支或早期原型，可以先在站内搜索索引，通常能找到原始的引用出处。</p>
+        </details>
+        <details>
+            <summary>🔗 链接与延伸范围</summary>
+            <p>站内链接以外链参考为主，指向原始文档、社区存档或已公开的开发日志。延伸阅读部分经过筛选，避免过于碎片化的讨论帖。</p>
+        </details>
+    </div>
+
+    <div class="footnote">
+        <span><span class="tag">索引</span> <span class="tag">对照</span> <span class="tag">延伸</span></span>
+        <span><a href="https://zh-m-i-game.com.cn" target="_blank">爱游戏</a> · 信息参考</span>
+    </div>
+</div>
+</body>
+</html>
